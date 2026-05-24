@@ -326,3 +326,24 @@ select option:checked {
 .reserva-item:last-child {
   border-bottom: none;
 }
+
+.header-right button {
+  background-color:  #111827;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.header-right button:hover {
+  background-color: #111827;
+  transform: translateY(-1px);
+}
+
+.header-right button:active {
+  transform: translateY(0px);
+}

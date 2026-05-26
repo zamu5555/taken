@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "../pages/Login";
 import Panel from "../pages/Panel";
+import FormularioReserva from "../pages/FormularioReserva";
 
 function AppRoutes() {
     return (
@@ -11,6 +12,9 @@ function AppRoutes() {
             <Route
                 path="/panel"
                 element={<Panel />} />
+            <Route
+                path="FormularioCrear"
+                element={<FormularioReserva/>}/>
         </Routes>
     );
 }

@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import logo from "../assets/logo.png";
 import BotonCerrarSesion from "./BotonCerrarSesion";
+import BotonCrear from "./BotonCrear";
 
 function Header() {
   const location = useLocation();
@@ -23,6 +24,9 @@ function Header() {
 
         <div className="header-right">
           {estaEnPanel && <BotonCerrarSesion />}
+        </div>
+        <div className="header-right">
+          {estaEnPanel && <BotonCrear />}
         </div>
 
       </div>

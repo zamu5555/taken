@@ -5,7 +5,7 @@ function BotonCrear() {
   const navigate = useNavigate();
 
   const crear = () => {
-    navigate("/FormularioCrear");
+    navigate("/formulario-crear");
   };
 
   return (

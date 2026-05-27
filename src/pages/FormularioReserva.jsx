@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -29,6 +30,16 @@ function FormularioReserva() {
   const guardarReserva = async (e) => {
     e.preventDefault();
 
+    if (!formulario.nombreCliente || !formulario.cantidadPersonas) {
+      Swal.fire({
+        icon: "warning",
+        title: "Campos obligatorios",
+        text: "Debes completar nombre y cantidad de personas",
+        confirmButtonColor: "#2563eb",
+      });
+      return;
+    }
+
     const nuevaReserva = {
       ...formulario,
       cantidadPersonas: Number(formulario.cantidadPersonas),
@@ -41,12 +52,23 @@ function FormularioReserva() {
         nuevaReserva
       );
 
-      alert("Reserva creada correctamente");
+      await Swal.fire({
+        icon: "success",
+        title: "Reserva creada",
+        text: "La reserva fue registrada correctamente",
+        confirmButtonColor: "#2563eb",
+      });
 
       navigate("/panel");
     } catch (error) {
       console.error(error);
-      alert("No se pudo guardar la reserva");
+
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "No se pudo guardar la reserva",
+        confirmButtonColor: "#2563eb",
+      });
     }
   };
 
@@ -92,6 +114,7 @@ function FormularioReserva() {
 
             <select
               name="estado"
+              className="w-full border p-2 rounded mb-4"
               value={formulario.estado}
               onChange={cambiarValor}
               required
